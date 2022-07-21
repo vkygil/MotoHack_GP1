@@ -14,11 +14,11 @@ export function List(){
 
     const getAllData=()=>{
         setIsLoading(true)
-            motoServices.getAllMotos().then(res =>{
-                if(!res) return;
+            let res = motoServices.getAllMotos()
+              
                 setMotoList(res);
                 setIsLoading(false)
-            })
+            
     }    
     
     return(
