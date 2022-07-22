@@ -15,11 +15,9 @@ export function List() {
 
     const getAllData = () => {
         setIsLoading(true)
-        let res = motoServices.getAllMotos()
-
+        let res = motoServices.getAllMotos() 
         setMotoList(res);
-        setIsLoading(false)
-
+        setIsLoading(false);
     }
 
     return (
@@ -35,7 +33,7 @@ export function List() {
 
                 </section>
             </div>
-            <div class="col-md-4">
+             <div class="col-md-4">
             <div class="well"><strong>Filters</strong> </div>
 
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -142,7 +140,7 @@ export function List() {
                 </div>
 
             </div>
-        </div>
+         </div>
         </div>
     )
 }
