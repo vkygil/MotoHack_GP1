@@ -2,34 +2,40 @@ import { useEffect, useState } from "react";
 import { motoServices } from "../../data_API/motoServices";
 import { Card } from "../card/Card";
 import { Loader } from "../loader/Loader";
+import { Sidebar } from "../Sidebar";
 
-export function List(){
+export function List() {
     const [motoList, setMotoList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         getAllData();
-    },[]
+    }, []
     );
 
-    const getAllData=()=>{
+    const getAllData = () => {
         setIsLoading(true)
-            let res = motoServices.getAllMotos()
-              
-                setMotoList(res);
-                setIsLoading(false)
-            
-    }    
-    
-    return(
-        <section className="cardList">
+        let res = motoServices.getAllMotos()
 
-                {isLoading? <Loader/> : '' }
+        setMotoList(res);
+        setIsLoading(false)
 
-                {motoList.map((moto,key) => 
-                <Card key={key} moto={moto} getAllData={getAllData}/>
-                )}              
+    }
 
-        </section>
+    return (
+        <div>
+            <div class="col-md-8">
+                <section className="cardList">
+
+                    {isLoading ? <Loader /> : ''}
+
+                    {motoList.map((moto, key) =>
+                        <Card key={key} moto={moto} getAllData={getAllData} />
+                    )}
+
+                </section>
+            </div>
+            <Sidebar />
+        </div>
     )
 }
